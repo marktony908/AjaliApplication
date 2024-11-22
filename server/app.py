@@ -349,7 +349,7 @@ api.add_resource(UserDetailResource, '/users/<int:user_id>')
 def after_request(response):
     """Add CORS headers after each request"""
     origin = request.headers.get('Origin')
-    if origin in ['http://localhost:5173']:
+    if origin in ['http://localhost:5173', 'https://ajaliapplication-1.onrender.com']:
         response.headers['Access-Control-Allow-Origin'] = origin
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
         response.headers['Access-Control-Allow-Methods'] = 'GET,PUT,POST,DELETE,OPTIONS'

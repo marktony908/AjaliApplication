@@ -4,7 +4,7 @@ from datetime import timedelta
 class Config:
     # Basic Flask configuration
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'ajali-2'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///ajali.db'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'postgresql://appild_db_user:20iJcwkNn8C2UTAE9fY7lP7IpSYL7SFy@dpg-ct08lclumphs73f29pvg-a.oregon-postgres.render.com/appild_db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
     # Session configuration
@@ -16,7 +16,7 @@ class Config:
     SESSION_COOKIE_SAMESITE = 'Lax'
     
     # CORS configuration
-    CORS_ORIGINS = ["http://localhost:5173"]
+    CORS_ORIGINS = ["http://localhost:5173", "https://ajaliapplication-1.onrender.com"]
     CORS_SUPPORTS_CREDENTIALS = True
     CORS_ALLOW_HEADERS = ["Content-Type", "Authorization"]
     CORS_EXPOSE_HEADERS = ["Content-Range", "X-Content-Range"]
