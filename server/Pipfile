@@ -96,6 +96,7 @@ werkzeug = "==3.0.3"
 wsproto = "==1.2.0"
 yt-dlp = "==2024.10.7"
 zipp = "==3.18.2"
+flask-session = "*"
 
 [dev-packages]
 
