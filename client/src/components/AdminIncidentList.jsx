@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { updateIncidentStatus, deleteIncident } from '../services/incidentService';
+import { deleteIncident } from '../services/incidentService';
 import { MapPin, Trash2, AlertTriangle, MessageCircle } from 'lucide-react';
 import { format } from 'date-fns';
 import ConfirmDialog from './ConfirmDialog';

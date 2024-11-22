@@ -38,7 +38,7 @@ app.config.update(
 CORS(app,
     resources={
         r"/*": {
-            "origins": ["http://localhost:5173"],
+            "origins": ["http://localhost:5174"],
             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
             "allow_headers": ["Content-Type", "Authorization"],
             "supports_credentials": True
@@ -361,4 +361,5 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
         create_admin_user()
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 5555))
+    app.run(host="0.0.0.0", port=port, debug=True)
