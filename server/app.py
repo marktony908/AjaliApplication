@@ -38,7 +38,7 @@ app.config.update(
 CORS(app,
     resources={
         r"/*": {
-            "origins": ["http://localhost:5174", "https://ajaliapplication-1.onrender.com"],
+            "origins": ["https://ajaliapplication-1.onrender.com"],
             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
             "allow_headers": ["Content-Type", "Authorization"],
             "supports_credentials": True
