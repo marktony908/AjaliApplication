@@ -1,9 +1,8 @@
-from flask_sqlalchemy import SQLAlchemy
-from flask_session import Session
+from flask_sqlalchemy import SQLAlchemy, session
 
 # Initialize extensions
 db = SQLAlchemy()
-server_session = Session()
+
 
 # Export both extensions
-__all__ = ['db', 'server_session']
+__all__ = ['db']

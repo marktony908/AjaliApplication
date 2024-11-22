@@ -17,13 +17,13 @@ from functools import wraps
 from datetime import timedelta
 import os
 
-# Create Flask app
+
 app = Flask(__name__)
 
 # Basic configuration
 app.config.update(
     SECRET_KEY='ajali-2',
-    SQLALCHEMY_DATABASE_URI='sqlite:///ajali.db',
+    SQLALCHEMY_DATABASE_URI='postgresql://appild_db_user:20iJcwkNn8C2UTAE9fY7lP7IpSYL7SFy@dpg-ct08lclumphs73f29pvg-a.oregon-postgres.render.com/appild_db',
     SQLALCHEMY_TRACK_MODIFICATIONS=False,
     SESSION_COOKIE_SAMESITE='Lax',
     SESSION_COOKIE_SECURE=False,  # Set to True in production with HTTPS
