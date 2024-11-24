@@ -123,7 +123,7 @@ class LogoutResource(Resource):
         return {'message': 'Logged out successfully'}, 200
 
 class IncidentListResource(Resource):
-    @login_required
+    # @login_required
     def post(self):
         files = request.files.getlist('files')
         data = request.form
@@ -167,7 +167,7 @@ class IncidentListResource(Resource):
 
         return incident.to_dict(), 201
     
-    @login_required
+    # @login_required
     def get(self):
         """Get all incidents"""
         try:
@@ -178,12 +178,12 @@ class IncidentListResource(Resource):
             return {'message': 'Internal server error'}, 500
 
 class IncidentResource(Resource):
-    @login_required
+    # @login_required
     def get(self, incident_id):
         incident = IncidentReport.query.get_or_404(incident_id)
         return incident.to_dict()
 
-    @login_required
+    # @login_required
     def put(self, incident_id):
         try:
             incident = IncidentReport.query.get_or_404(incident_id)
@@ -212,7 +212,7 @@ class IncidentResource(Resource):
             db.session.rollback()
             return {'message': str(e)}, 500
 
-    @login_required
+    # @login_required
     def delete(self, incident_id):
         try:
             incident = IncidentReport.query.get_or_404(incident_id)
@@ -241,7 +241,7 @@ class IncidentResource(Resource):
             db.session.rollback()
             return {'message': str(e)}, 500
 
-    @login_required
+    # @login_required
     def delete(self, incident_id):
         incident = IncidentReport.query.get_or_404(incident_id)
         
@@ -254,7 +254,7 @@ class IncidentResource(Resource):
         return '', 204
 
 class CommentResource(Resource):
-    @login_required
+    # @login_required
     def post(self, incident_id):
         data = request.get_json()
         comment = IncidentComment(
@@ -267,7 +267,7 @@ class CommentResource(Resource):
         return comment.to_dict(), 201
 
 class ReactionResource(Resource):
-    @login_required
+    # @login_required
     def post(self, incident_id):
         data = request.get_json()
         reaction = IncidentReaction(
@@ -280,7 +280,7 @@ class ReactionResource(Resource):
         return reaction.to_dict(), 201
 
 class ReviewResource(Resource):
-    @login_required
+    # @login_required
     def post(self, incident_id):
         data = request.get_json()
         review = IncidentReview(
@@ -294,14 +294,14 @@ class ReviewResource(Resource):
         return review.to_dict(), 201
 
 class NotificationResource(Resource):
-    @login_required
+    # @login_required
     def get(self):
         notifications = Notification.query.filter_by(
             user_id=session['user_id']
         ).order_by(Notification.created_at.desc()).all()
         return jsonify([n.to_dict() for n in notifications])
 
-    @login_required
+  
     def put(self, notification_id):
         notification = Notification.query.get_or_404(notification_id)
         if notification.user_id != session['user_id']:
